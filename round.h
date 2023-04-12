@@ -13,7 +13,7 @@ class round: public table{
 public:
     round();
     virtual void disp();
-    double getprice();
+    virtual double getprice();
     virtual ~round(){};
 };
 round::round() {

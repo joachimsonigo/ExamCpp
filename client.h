@@ -8,6 +8,8 @@
 #include <iostream>
 #include "furniture.h"
 #include "desk.h"
+#include <fstream>
+#include <sstream>
 using namespace std;
 class client {
 protected:
@@ -19,6 +21,9 @@ public:
     void disp();
     void pop();
     void edit();
+    double totprice();
+    double averageprice();
+    void write();
 };
 
 void client::add() {
@@ -76,6 +81,10 @@ void client::disp() {
     for (int i = 0; i < m_furniture.size(); i++) {
         m_furniture[i]->disp();
     }
+    cout<<"------------------------------------"<<endl;
+    cout<<"Total price : "<<totprice()<<endl;
+    cout<<"Average price : "<<averageprice()<<endl;
+    cout<<"------------------------------------"<<endl;
 }
 void client::edit() {
     int index,k;
@@ -96,5 +105,36 @@ void client::edit() {
         m_furniture[index-1]->add_drawers(n);
     else
         m_furniture[index-1]->remove_drawers(n);
+}
+
+double client::totprice() {
+    int tot =0;
+    for (int i = 0; i < size(m_furniture); ++i) {
+        tot+=m_furniture[i]->getprice();
+    }
+    return tot;
+}
+double client::averageprice() {
+    int tot =0;
+    for (int i = 0; i < size(m_furniture); ++i) {
+        tot+=m_furniture[i]->getprice();
+    }
+    return (tot/size(m_furniture));
+}
+
+void client::write() {
+    ofstream outfile("furniture.csv");
+    if (!outfile) {
+        cerr << "Error opening output file" << endl;
+        return;
+    }
+    outfile << "Furniture Type, Attribute, Price" << endl;
+    for (int i = 0; i < m_furniture.size(); i++) {
+        outfile << m_furniture[i]->gettype() << ", ";
+        outfile << m_furniture[i]->get_type() << ", ";
+        outfile << m_furniture[i]->getprice() << endl;
+    }
+    outfile.close();
+    cout << "Furniture data written to furniture.csv" << endl;
 }
 #endif //EXAMSONIGO_CLIENT_H

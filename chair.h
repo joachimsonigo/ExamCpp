@@ -15,8 +15,8 @@ class chair:public Furniture{
 public:
     chair();
     virtual void disp();
-    string get_type();
-    double getprice();
+    virtual string get_type();
+    virtual double getprice();
     virtual ~chair(){};
 };
 chair::chair() {

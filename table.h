@@ -14,7 +14,7 @@ class table :public Furniture {
 public:
     table(int = 1);
     virtual void disp();
-    string get_type();
+    virtual string get_type();
     virtual ~table(){};
 
 };

@@ -12,6 +12,7 @@ using namespace std;
 void menu(){
     int choice;
     client mf;
+
     do {
         do {
             cout<<"-----------------\n\tMenu\n-----------------"<<endl;
@@ -42,6 +43,7 @@ void menu(){
         }
     }while(choice != 5);
     system("color 04");
+    mf.write();
     cout<<"Thank you for using this furniture menu!"<<endl;
     cout<<"This was created by Joachim Sonigo"<<endl;
 }

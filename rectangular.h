@@ -12,7 +12,7 @@ class rectangular: public table{
 public:
     rectangular(bool is_desk=0);
     virtual void disp();
-    double getprice();
+    virtual double getprice();
     virtual ~rectangular(){};
 
 };

@@ -14,7 +14,7 @@ private:
 public:
     desk();
     virtual void disp();
-    double getprice();
+    virtual double getprice();
     virtual void remove_drawers(int);
     virtual void add_drawers(int);
     virtual ~desk(){};
