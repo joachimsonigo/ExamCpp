@@ -5,25 +5,43 @@
 #include "rectangular.h"
 #include "chair.h"
 #include "desk.h"
+#include "client.h"
 using namespace std;
 
 
+void menu(){
+    int choice;
+    client mf;
+    do {
+        do {
+            cout<<"-----------------\n\tMenu\n-----------------"<<endl;
+            cout<<"1-Add\n2-Show\n3-Delete\n4-Exit"<<endl;
+            cout<<"--------------"<<endl;
+            cin>>choice;
+        }while(choice<1 || choice > 4);
+        if (choice ==1){
+            mf.add();
+            system("pause");
+        }
+        else
+        if (choice == 2){
+            mf.disp();
+            system("pause");
+        }
+        else
+        if (choice == 3){
+            mf.disp();
+            system("pause");
+            mf.pop();
+        }
+    }while(choice != 4);
+    system("color 04");
+    cout<<"Thank you for using this furniture menu!"<<endl;
+    cout<<"This was created by Joachim Sonigo"<<endl;
+}
+
 int main() {
-    Furniture * M1 = new chair;
-    Furniture * M2 = new rectangular;
-    Furniture * M3 = new round;
-    Furniture * M4 = new desk;
-
-    M1->disp();
-    M2->disp();
-    M3->disp();
-    M4->disp();
-
-    delete M1;
-    delete M2;
-    delete M3;
-    delete M4;
-
-
+    system("color 0A");
+    menu();
     return 0;
 }
