@@ -10,22 +10,34 @@ using namespace std;
 
 class rectangular: public table{
 public:
-    rectangular();
+    rectangular(bool is_desk=0);
     void disp();
     double getprice();
 };
 
 
-rectangular::rectangular(){
+rectangular::rectangular(bool is_desk) {
     int t;
-    cout<<"What is your rectangular table's height?"<<endl;
-    do {
-        cout << "1. low" << endl;
-        cout << "2. medium" << endl;
-        cout << "3. high" << endl;
-        cin >> t;
-    } while (t < 1 || t > 3);
-    type =t;
+    if (is_desk) {
+        do {
+            cout<<"What is your rectangular desk's height?"<<endl;
+            cout << "1. medium" << endl;
+            cout << "2. high" << endl;
+            line();
+            cin >> t;
+        } while (t < 1 || t > 2);
+    } else {
+        do {
+            cout<<"What is your rectangular table's height?"<<endl;
+            line();
+            cout << "1. low" << endl;
+            cout << "2. medium" << endl;
+            cout << "3. high" << endl;
+            line();
+            cin >> t;
+        } while (t < 1 || t > 3);
+    }
+    type = t;
 }
 
 void rectangular::disp() {

@@ -12,11 +12,41 @@ class desk: public rectangular {
 private:
     int nb_drawers;
 public:
-    desk(int=1, int=1);
+    desk();
     void disp();
     double getprice();
+    void remove_drawers(int);
+    void add_drawers(int);
 };
-void desk::disp() {cout<<"It's a desk of height : "<<type<<endl;cout<<"Price : "<<getprice()<<endl;}
+
+desk::desk() : rectangular(true) {
+    int d;
+
+    do {
+        cout << "How many drawers would you like? (min: 1 and max: 6)" << endl;
+        cin >> d;
+    } while (d < 1 || d > 6);
+
+    nb_drawers = d;
+}
+
+
+
+void desk::disp() {
+    line();
+    cout<<"It's a Table"<<endl;
+    line();
+    cout<<"Type : " << get_type()<<endl;
+    cout<<"Model : Rectangular desk special"<<endl;
+    cout<<"Drawers : "<<nb_drawers<<endl;
+    cout<<"Table price : "<<getprice()-15*nb_drawers<<endl;
+    cout<<"Drawers price : "<<15*nb_drawers<<endl;
+    line();
+    cout<<"Total price : "<<getprice()<<endl;
+    line();
+}
+
+
 double desk::getprice() {
     if (type == 1)
         return 120 + 15*nb_drawers;
@@ -27,4 +57,16 @@ double desk::getprice() {
             return 160 + 15*nb_drawers;
 }
 
+void desk::remove_drawers(int n) {
+    if (nb_drawers - n < 1)
+        cout<<"You can't remove more drawers than you have and you need at least one drawer !"<<endl;
+    else
+        nb_drawers -= n;
+}
+void desk::add_drawers(int n) {
+    if (nb_drawers + n > 6)
+        cout<<"You can't add more than 6 drawers !"<<endl;
+    else
+        nb_drawers += n;
+}
 #endif //EXAMSONIGO_DESK_H

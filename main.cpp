@@ -9,7 +9,9 @@ using namespace std;
 
 
 int main() {
-    round c;
+    desk c;
+    rectangular r;
+    r.disp();
     c.disp();
     return 0;
 }
