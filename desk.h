@@ -58,14 +58,17 @@ double desk::getprice() {
 }
 
 void desk::remove_drawers(int n) {
-    if (nb_drawers - n < 1)
-        cout<<"You can't remove more drawers than you have and you need at least one drawer !"<<endl;
+    if (nb_drawers - n < 1){
+        cout<<"You can't remove more drawers than you have and you need at least one drawer !\nYou now only have one drawer,which is the minimum."<<endl;
+        nb_drawers= 1;}
     else
         nb_drawers -= n;
 }
 void desk::add_drawers(int n) {
-    if (nb_drawers + n > 6)
-        cout<<"You can't add more than 6 drawers !"<<endl;
+    if (nb_drawers + n > 6) {
+        cout << "You can't have more than 6 drawers !\nYou now have the max number of drawers which is 6" << endl;
+        nb_drawers= 6;
+    }
     else
         nb_drawers += n;
 }
