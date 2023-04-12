@@ -16,6 +16,7 @@ public:
     virtual void disp();
     string get_type();
     virtual ~table(){};
+
 };
 table::table(int t): Furniture(t) {}
 

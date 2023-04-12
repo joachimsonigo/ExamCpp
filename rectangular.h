@@ -14,6 +14,7 @@ public:
     virtual void disp();
     double getprice();
     virtual ~rectangular(){};
+
 };
 
 

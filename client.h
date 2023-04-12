@@ -7,7 +7,8 @@
 #include <vector>
 #include <iostream>
 #include "furniture.h"
-
+#include "desk.h"
+using namespace std;
 class client {
 protected:
     vector<Furniture*> m_furniture;
@@ -17,6 +18,7 @@ public:
     void add();
     void disp();
     void pop();
+    void edit();
 };
 
 void client::add() {
@@ -75,5 +77,24 @@ void client::disp() {
         m_furniture[i]->disp();
     }
 }
-
+void client::edit() {
+    int index,k;
+    do {
+        cout<<"What's the index of the furniture you want to edit?"<<endl;
+        cin>>index;
+    } while (index < 1 || index > m_furniture.size());
+    do {
+        cout<<"Would you like to remove or add drawers?"<<endl;
+        cout<<"1. Add"<<endl;
+        cout<<"2. Remove"<<endl;
+        cin>>k;
+    }while (k < 1 || k > 2);
+        int n;
+        cout<<"How many drawers would you like to add/remove?"<<endl;
+        cin>>n;
+    if (k == 1)
+        m_furniture[index-1]->add_drawers(n);
+    else
+        m_furniture[index-1]->remove_drawers(n);
+}
 #endif //EXAMSONIGO_CLIENT_H

@@ -15,10 +15,10 @@ void menu(){
     do {
         do {
             cout<<"-----------------\n\tMenu\n-----------------"<<endl;
-            cout<<"1-Add\n2-Show\n3-Delete\n4-Exit"<<endl;
+            cout<<"1-Add\n2-Show\n3-Delete\n4-Edit a Desk\n5-Exit"<<endl;
             cout<<"--------------"<<endl;
             cin>>choice;
-        }while(choice<1 || choice > 4);
+        }while(choice<1 || choice > 5);
         if (choice ==1){
             mf.add();
             system("pause");
@@ -34,7 +34,13 @@ void menu(){
             system("pause");
             mf.pop();
         }
-    }while(choice != 4);
+        else
+        if (choice == 4){
+            mf.disp();
+            system("pause");
+            mf.edit();
+        }
+    }while(choice != 5);
     system("color 04");
     cout<<"Thank you for using this furniture menu!"<<endl;
     cout<<"This was created by Joachim Sonigo"<<endl;
