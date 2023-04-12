@@ -13,7 +13,8 @@ protected:
 
 public:
     Furniture(int =1);
-    void disp();
+    virtual void disp() = 0; // pure virtual function
+    virtual ~Furniture() {};
 };
 Furniture::Furniture(int t){type = t;}
 

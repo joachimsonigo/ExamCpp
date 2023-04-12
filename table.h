@@ -13,8 +13,9 @@ using namespace std;
 class table :public Furniture {
 public:
     table(int = 1);
-    void disp();
+    virtual void disp();
     string get_type();
+    virtual ~table(){};
 };
 table::table(int t): Furniture(t) {}
 

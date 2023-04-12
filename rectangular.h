@@ -11,8 +11,9 @@ using namespace std;
 class rectangular: public table{
 public:
     rectangular(bool is_desk=0);
-    void disp();
+    virtual void disp();
     double getprice();
+    virtual ~rectangular(){};
 };
 
 

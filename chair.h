@@ -14,17 +14,21 @@ class chair:public Furniture{
 
 public:
     chair();
-    void disp();
+    virtual void disp();
     string get_type();
     double getprice();
+    virtual ~chair(){};
 };
 chair::chair() {
     int t;
     cout << "Which chair model would you like?" << endl;
     do {
+        line();
         cout << "1. fixed chair" << endl;
         cout << "2. folding chair" << endl;
         cout << "3. desk chair" << endl;
+        line();
+        cout<<"choice : ";
         cin >> t;
     } while (t < 1 || t > 3);
     type = t;

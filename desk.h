@@ -13,10 +13,11 @@ private:
     int nb_drawers;
 public:
     desk();
-    void disp();
+    virtual void disp();
     double getprice();
     void remove_drawers(int);
     void add_drawers(int);
+    virtual ~desk(){};
 };
 
 desk::desk() : rectangular(true) {

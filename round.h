@@ -12,8 +12,9 @@ using namespace std;
 class round: public table{
 public:
     round();
-    void disp();
+    virtual void disp();
     double getprice();
+    virtual ~round(){};
 };
 round::round() {
     int t;
